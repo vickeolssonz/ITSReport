@@ -1,0 +1,23 @@
+﻿@model  IEnumerable<XJob.Models.Report> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<!-- Table row -->
+			<th>Reports</th> <!-- table header -->
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var rep in Model)
+		{
+			<tr>
+				<td>@Html.ActionLink(rep.Title, "Details", "Companys", new { id = rep.Id }, null)</td>
+			</tr>
+		}
+	</tbody>
+	</table>

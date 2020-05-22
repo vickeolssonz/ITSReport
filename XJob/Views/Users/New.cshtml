@@ -1,0 +1,39 @@
+﻿@model XJob.ViewModel.ReportsFormViewModel
+@{
+	ViewBag.Title = "New";
+	Layout = "~/Views/Shared/_LayoutForUser.cshtml";
+}
+
+<h2>New report</h2>
+
+@using (Html.BeginForm("Create", "Users"))
+{
+	<div class="form-group">
+		@Html.LabelFor(r => r.Report.Title)
+		@Html.TextBoxFor(r => r.Report.Title, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(r => r.Report.Description)
+		@Html.TextAreaFor(r => r.Report.Description, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(r => r.Company.Name)
+		@Html.DropDownListFor(r => r.Company.Id, new SelectList(Model.Companies, "Id", "Name"), "Choose a company please..", new { @class = "form-control" })
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(r => r.Report.Username)
+		@Html.TextBoxFor(r => r.Report.Username, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(r => r.Report.PhoneNumber)
+		@Html.TextBoxFor(r => r.Report.PhoneNumber, new { @class = "form-control" })
+	</div>
+	
+	<div class="form-group">
+		@Html.HiddenFor(r => r.Report.Id)
+	</div>
+
+
+	<button type="submit" class="btn btn-primary">Save</button>
+}

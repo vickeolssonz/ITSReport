@@ -1,0 +1,49 @@
+﻿@model XJob.Models.Report
+@{
+	/**/
+
+	/**/
+
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table class="table table-bordered table-hover">
+	<tr>
+		<th>Title</th>
+		<td>@Model.Title</td>
+	</tr>
+	<tr>
+		<th>Description</th>
+		<td> @Model.Description</td>
+	</tr>
+	<tr>
+		<th>Username</th>
+		<td> @Model.Username</td>
+	</tr>
+	<tr>
+		<th>Phonenumber</th>
+		<td> @Model.PhoneNumber</td>
+	</tr>
+</table>
+
+@using (Html.BeginForm("reportAnalyz", "Companys"))
+{
+	@Html.HiddenFor(r => r.Id)
+
+<div class="checkbox">
+	@Html.CheckBox("IsDone", Model.IsDone, new { @value = Model.IsDone }) Mark if case is closed
+</div>
+
+<div class="checkbox">
+	@Html.CheckBox("OnGoing", Model.OnGoing, new { @value = Model.OnGoing }) Mark if case is OnGoing
+</div>
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+}
+
+
+
+<!-- table header -->
