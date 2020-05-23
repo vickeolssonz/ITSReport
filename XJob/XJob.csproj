@@ -309,6 +309,7 @@
     <Content Include="Views\Shared\_NavbarForUser.cshtml" />
     <Content Include="Views\Shared\_LayoutForUser.cshtml" />
     <Content Include="Views\Companys\Analyze.cshtml" />
+    <Content Include="Views\Companys\HomePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\zhart\" />

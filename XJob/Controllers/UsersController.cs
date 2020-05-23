@@ -35,7 +35,8 @@ namespace XJob.Controllers
 			return View(viewModel);
 		}
 
-	
+
+		[AllowAnonymous]
 		public ActionResult Index()
 		{
 			var users = _context.Users.ToList();

@@ -31,6 +31,12 @@ namespace XJob.Controllers
 			return View(reports);
 		}
 
+	   [AllowAnonymous]
+		public ActionResult HomePage()
+		{
+			return View();
+		}
+
 		public ActionResult Details(int id)
 		{
 			var report = _context.Reports.SingleOrDefault(r => r.Id == id);
