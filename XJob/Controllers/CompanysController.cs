@@ -44,12 +44,12 @@ namespace XJob.Controllers
 			return View();
 		}
 
-		[HttpPost]
+		// Checkbox 
+		[HttpPost] 
 		public ActionResult reportAnalyz(Report report)
 		{		  
 			var dbReport = _context.Reports.Where(r => r.Id == report.Id).FirstOrDefault();
 
-			// OM den r ikryssad, då är den klar, om INTE är den pågående
 			dbReport.IsDone = report.IsDone;
 			dbReport.OnGoing = report.OnGoing;
 			

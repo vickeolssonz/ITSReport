@@ -4,7 +4,6 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
@@ -16,7 +15,16 @@
 		@foreach (var rep in Model)
 		{
 			<tr>
-				<td>@Html.ActionLink(rep.Title, "Details", "Companys", new { id = rep.Id }, null)</td>
+				<td>
+					@if (rep.IsDone == true)
+					{
+						@Html.ActionLink(rep.Title, "Details", "Companys", new { id = rep.Id}, null)
+					}
+					else
+					{
+						@Html.ActionLink(rep.Title, "Details", "Companys", new { id = rep.Id }, null)
+					}
+				</td>
 			</tr>
 		}
 	</tbody>

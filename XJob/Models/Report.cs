@@ -19,7 +19,7 @@ namespace XJob.Models
 
 		[Required]
 		[StringLength(255)]
-		[Display(Name = "Your name")]
+		[Display(Name = "Your Emailadress")]
 		public string Username { get; set; }
 
 		[Required]

@@ -11,8 +11,8 @@ namespace XJob.ViewModel
 		public Report Report { get; set; }
 		public User User{ get; set; }
 		public Company Company{ get; set; }
-		public List<Company>  Companies { get; set; }
+		public IEnumerable<Company>  Companies { get; set; }
 
-		// Varje User har en koppling till en report
+
 	}
 }

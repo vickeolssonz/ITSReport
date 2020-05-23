@@ -26,17 +26,20 @@ namespace XJob.Controllers
 		public ActionResult New()
 		{
 			var companies = _context.Company.ToList();
+
 			var viewModel = new ReportsFormViewModel()
 			{
-			   Companies = companies
+				Companies = companies
 			};
+		
 			return View(viewModel);
 		}
 
-		// GET: Users
+	
 		public ActionResult Index()
 		{
-			return View();
+			var users = _context.Users.ToList();
+			return View(users);
 		}
 
 		[HttpPost]
