@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -35,6 +36,12 @@ namespace XJob.Controllers
 			return View(viewModel);
 		}
 
+		[AllowAnonymous]
+		public ActionResult ShowUsers()
+		{
+			var user = User.Identity.Name;
+			return View((object)user);
+		}
 
 		[AllowAnonymous]
 		public ActionResult Index()

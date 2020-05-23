@@ -9,7 +9,6 @@ namespace XJob.ViewModel
 	public class ReportsFormViewModel
 	{
 		public Report Report { get; set; }
-		public User User{ get; set; }
 		public Company Company{ get; set; }
 		public IEnumerable<Company>  Companies { get; set; }
 

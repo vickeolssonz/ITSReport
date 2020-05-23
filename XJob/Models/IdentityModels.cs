@@ -22,7 +22,7 @@ namespace XJob.Models
 	{
 
 		public DbSet<Report> Reports { get; set; }
-		public DbSet<User> User { get; set; }
+
 		public DbSet<Company> Company { get; set; }
 
 		public ApplicationDbContext()
