@@ -9,8 +9,8 @@ using Newtonsoft.Json;
 
 namespace XJob.Controllers
 {
-    public class CompanysController : Controller
-    {
+	public class CompanysController : Controller
+	{
 
 		private ApplicationDbContext _context;
 
@@ -26,10 +26,10 @@ namespace XJob.Controllers
 
 		// GET: Companys
 		public ActionResult Index()
-        {
+		{
 			var reports = _context.Reports.ToList();
-            return View(reports);
-        }
+			return View(reports);
+		}
 
 		public ActionResult Details(int id)
 		{
@@ -44,14 +44,16 @@ namespace XJob.Controllers
 			return View();
 		}
 
+		[HttpPost]
 		public ActionResult reportAnalyz(Report report)
 		{		  
 			var dbReport = _context.Reports.Where(r => r.Id == report.Id).FirstOrDefault();
 
+			// OM den r ikryssad, då är den klar, om INTE är den pågående
+			dbReport.IsDone = report.IsDone;
 			dbReport.OnGoing = report.OnGoing;
-			dbReport.IsDone= report.IsDone;
-
-		    _context.SaveChanges();
+			
+			_context.SaveChanges();
 
 			return RedirectToAction("Index", "Companys");
 		}

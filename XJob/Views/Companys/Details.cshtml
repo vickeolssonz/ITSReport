@@ -33,15 +33,17 @@
 {
 	@Html.HiddenFor(r => r.Id)
 
-<div class="checkbox">
-	@Html.CheckBox("IsDone", Model.IsDone, new { @value = Model.IsDone }) Mark if case is closed
-</div>
 
 <div class="checkbox">
-	@Html.CheckBox("OnGoing", Model.OnGoing, new { @value = Model.OnGoing }) Mark if case is OnGoing
+  @Html.CheckBoxFor(m => m.IsDone) Is Done
 </div>
 
-	<button type="submit" class="btn btn-primary">Submit</button>
+
+<div class="checkbox">
+	@Html.CheckBoxFor(m => m.OnGoing) On Going 
+</div>
+
+<button type="submit" class="btn btn-primary">Save</button>
 }
 
 

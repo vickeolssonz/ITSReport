@@ -8,8 +8,8 @@ using XJob.ViewModel;
 
 namespace XJob.Controllers
 {
-    public class UsersController : Controller
-    {
+	public class UsersController : Controller
+	{
 
 		private ApplicationDbContext _context;
 
@@ -28,16 +28,16 @@ namespace XJob.Controllers
 			var companies = _context.Company.ToList();
 			var viewModel = new ReportsFormViewModel()
 			{
-		       Companies = companies
+			   Companies = companies
 			};
 			return View(viewModel);
 		}
 
 		// GET: Users
 		public ActionResult Index()
-        {
-            return View();
-        }
+		{
+			return View();
+		}
 
 		[HttpPost]
 		public ActionResult Create( Report report)
