@@ -84,5 +84,7 @@ namespace XJob.Controllers
 			public int OnGoing { get; set; }
 		}
 
+
+
 	}
 }
