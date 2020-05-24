@@ -57,6 +57,26 @@ namespace XJob.Controllers
 			_context.SaveChanges();
 			return RedirectToAction("index", "Users");
 		}
+
+		public ActionResult RegisteredReps()
+		{
+			var ListOfReports =_context.Reports.ToList();
+
+			return View(ListOfReports);
+		}
+
+		public ActionResult Delete(Report report)
+		{
+			foreach (var rep in _context.Reports)
+			{
+				if(report.Id == rep.Id)
+				{
+					_context.Reports.Remove(rep);
+				}
+			}
+			_context.SaveChanges();
+			return View("RegisteredReps", "Users");
+		} 
 	
 	}
 }

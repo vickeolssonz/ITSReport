@@ -314,6 +314,7 @@
     <Content Include="Views\Companys\Analyze.cshtml" />
     <Content Include="Views\Companys\HomePage.cshtml" />
     <Content Include="Views\Users\ShowUsers.cshtml" />
+    <Content Include="Views\Users\RegisteredReps.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\API\" />
