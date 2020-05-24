@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -58,7 +59,7 @@ namespace XJob.Controllers
 			return RedirectToAction("index", "Users");
 		}
 
-		public ActionResult RegisteredReps()
+		public ActionResult Registrated()
 		{
 			var ListOfReports =_context.Reports.ToList();
 
@@ -75,7 +76,7 @@ namespace XJob.Controllers
 				}
 			}
 			_context.SaveChanges();
-			return View("RegisteredReps", "Users");
+			return RedirectToAction("Registrated","Users");
 		} 
 	
 	}
