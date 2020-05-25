@@ -11,7 +11,5 @@ namespace XJob.ViewModel
 		public Report Report { get; set; }
 		public Company Company{ get; set; }
 		public IEnumerable<Company>  Companies { get; set; }
-
-
 	}
 }

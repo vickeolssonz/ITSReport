@@ -29,5 +29,6 @@ namespace XJob.Models
 		public bool IsDone { get; set; }
 
 		public bool OnGoing { get; set; }
+		public bool UnHandled { get; set; }
 	}
 }

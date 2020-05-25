@@ -65,7 +65,16 @@ namespace XJob.Controllers
 
 			dbReport.IsDone = report.IsDone;
 			dbReport.OnGoing = report.OnGoing;
-			
+
+			if (dbReport.IsDone || dbReport.OnGoing == false)
+			{
+				dbReport.UnHandled = true;
+			}
+			else
+			{
+				dbReport.UnHandled = false;
+			}
+
 			_context.SaveChanges();
 
 			return RedirectToAction("Index", "Companys");
@@ -75,12 +84,14 @@ namespace XJob.Controllers
 		{
 			var data = _context.Reports.Count(); // Alla ärenden 
 			var isDone = _context.Reports.Where(r => r.IsDone == true).Count(); //Uppklarade ärenden
-			 var onGoing = _context.Reports.Where(r => r.OnGoing == true).Count(); //Pågående ärenden
+			var onGoing = _context.Reports.Where(r => r.OnGoing == true).Count(); //Pågående ärenden
+			var unHandled = _context.Reports.Where(r => r.UnHandled == true).Count(); //Ohanterade ärenden
 
 			Ratio obj = new Ratio();
 			obj.RepData = data;
 			obj.IsDone = isDone;
 			obj.OnGoing = onGoing;
+			obj.UnHandled = unHandled;
 			return Json(obj, JsonRequestBehavior.AllowGet);
 		}
 
@@ -89,9 +100,7 @@ namespace XJob.Controllers
 			public int RepData { get; set; }
 			public int IsDone { get; set; }
 			public int OnGoing { get; set; }
+			public int UnHandled { get; set; }
 		}
-
-
-
 	}
 }
