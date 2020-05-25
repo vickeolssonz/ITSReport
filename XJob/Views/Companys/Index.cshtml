@@ -4,7 +4,7 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="table table-bordered table-hover">
+<table id="reports" class="table table-bordered table-hover">
 	<thead>
 		<tr>
 		
@@ -25,7 +25,33 @@
 						@Html.ActionLink(rep.Title, "Details", "Companys", new { id = rep.Id }, null)
 					}
 				</td>
+				<td>
+					<button data-report-id="@rep.Id" class="btn-link js-delete">Delete</button>
+				</td>
 			</tr>
 		}
 	</tbody>
 	</table>
+
+@section scripts{
+<script>	
+	$(document).ready(function () {
+		$("#reports .js-delete").on("click", function () {
+			var button = $(this);
+
+			bootbox.confirm("Are you sure you want to delete this report?", function(result){
+				if (result) {
+					$.ajax({
+						url: "/api/reports/" + button.attr("data-report-id"),
+						method: "DELETE",
+						success: function () {
+							console.log("success");
+							button.parents("tr").remove();
+						}
+					})
+				}
+			});
+		});
+	});
+</script>	
+}
