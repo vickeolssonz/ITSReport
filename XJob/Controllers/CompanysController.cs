@@ -66,13 +66,13 @@ namespace XJob.Controllers
 			dbReport.IsDone = report.IsDone;
 			dbReport.OnGoing = report.OnGoing;
 
-			if (dbReport.IsDone || dbReport.OnGoing == false)
+			if (dbReport.IsDone == true || dbReport.OnGoing == true)
 			{
-				dbReport.UnHandled = true;
+				dbReport.UnHandled = false;
 			}
 			else
 			{
-				dbReport.UnHandled = false;
+				dbReport.UnHandled = true;
 			}
 
 			_context.SaveChanges();
