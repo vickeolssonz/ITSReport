@@ -20,10 +20,10 @@ namespace XJob.Models
 
 	public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	{
-
 		public DbSet<Report> Reports { get; set; }
 
 		public DbSet<Company> Company { get; set; }
+
 
 		public ApplicationDbContext()
 			: base("DefaultConnection", throwIfV1Schema: false)

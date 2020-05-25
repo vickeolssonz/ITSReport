@@ -45,10 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -56,6 +62,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -166,13 +178,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MappingProfile.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\ReportsController.cs" />
     <Compile Include="Controllers\CompanysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Models\Dtos\ReportDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +251,14 @@
     <Compile Include="Migrations\202005250704494_AddedUnHandled.cs" />
     <Compile Include="Migrations\202005250704494_AddedUnHandled.Designer.cs">
       <DependentUpon>202005250704494_AddedUnHandled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005250850495_TESTMIGRATION.cs" />
+    <Compile Include="Migrations\202005250850495_TESTMIGRATION.Designer.cs">
+      <DependentUpon>202005250850495_TESTMIGRATION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005251151541_v10.cs" />
+    <Compile Include="Migrations\202005251151541_v10.Designer.cs">
+      <DependentUpon>202005251151541_v10.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -320,9 +344,9 @@
     <Content Include="Views\Users\ShowUsers.cshtml" />
     <Content Include="Views\Users\Registrated.cshtml" />
     <Content Include="Views\Companys\BarDiagram.cshtml" />
+    <Content Include="Views\Users\TestNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\API\" />
     <Folder Include="Scripts\zhart\" />
   </ItemGroup>
   <ItemGroup>
@@ -383,6 +407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005250704494_AddedUnHandled.resx">
       <DependentUpon>202005250704494_AddedUnHandled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005250850495_TESTMIGRATION.resx">
+      <DependentUpon>202005250850495_TESTMIGRATION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005251151541_v10.resx">
+      <DependentUpon>202005251151541_v10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

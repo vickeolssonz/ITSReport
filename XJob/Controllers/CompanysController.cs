@@ -32,10 +32,7 @@ namespace XJob.Controllers
 		}
 
 	   [AllowAnonymous]
-		public ActionResult HomePage()
-		{
-			return View();
-		}
+		public ActionResult HomePage() => View();
 
 		public ActionResult Details(int id)
 		{
@@ -44,19 +41,11 @@ namespace XJob.Controllers
 			return View(report);
 		}
 
-		public ActionResult Analyze()
-		{
-	
-			return View();
-		}
+		public ActionResult Analyze()=> View();
 
 		[Route("Companys/Analyze/BarDiagram")]
-		public ActionResult BarDiagram()
-		{
-
-			return View();
-		}
-
+		public ActionResult BarDiagram() => View();
+	
 		// Checkbox 
 		[HttpPost] 
 		public ActionResult reportAnalyz(Report report)
