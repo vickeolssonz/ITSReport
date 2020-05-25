@@ -50,6 +50,13 @@ namespace XJob.Controllers
 			return View();
 		}
 
+		[Route("Companys/Analyze/BarDiagram")]
+		public ActionResult BarDiagram()
+		{
+
+			return View();
+		}
+
 		// Checkbox 
 		[HttpPost] 
 		public ActionResult reportAnalyz(Report report)

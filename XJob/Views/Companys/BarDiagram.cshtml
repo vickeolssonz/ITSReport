@@ -1,0 +1,88 @@
+﻿
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<div class="jumbotron">
+	<div id="container" style="min-width:310px; height:400px; max-width:600px; margin: 0 auto"></div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		$.getJSON("/Companys/GetData", function (data) {
+
+			Highcharts.chart('container', {
+				chart: {
+					type: 'column'
+				},
+				credits: {
+					enabled: false
+				},
+				title: {
+					text: 'Data visualization of reports'
+				},
+				xAxis: {
+					categories: ['Reports']				
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: 'Reported cases'
+					},
+
+					stackLabels: {
+						enabled: true,
+						style: {
+							fontWeight: 'bold',
+							color: ( // theme
+								Highcharts.defaultOptions.title.style &&
+								Highcharts.defaultOptions.title.style.color
+							) || 'gray'
+						}
+					}
+				},
+				legend: {
+					align: 'right',
+					x: -30,
+					verticalAlign: 'top',
+					y: 25,
+					floating: true,
+					backgroundColor:
+						Highcharts.defaultOptions.legend.backgroundColor || 'white',
+					borderColor: '#CCC',
+					borderWidth: 1,
+					shadow: false
+				},
+				tooltip: {
+					headerFormat: '<b>{point.x}</b><br/>',
+					pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+				},
+				plotOptions: {
+					column: {
+						stacking: 'normal',
+						dataLabels: {
+							enabled: true
+						}
+					}
+				},
+					series: [{
+						name: 'Reported cases',
+						data: [data.RepData]
+					}, {
+						name: 'Is done',
+							data: [data.IsDone]
+					}, {
+						name: 'OnGoing',
+							data: [data.OnGoing]
+					}]
+			});
+
+		});
+	});
+
+</script>
+
+
