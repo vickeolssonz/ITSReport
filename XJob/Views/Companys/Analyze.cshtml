@@ -9,6 +9,7 @@
 	<div id="container" style="min-width:310px; height:400px; max-width:600px; margin: 0 auto"></div>
 </div>
 
+
 <script>
 	$(document).ready(function () {
 		$.getJSON("/Companys/GetData", function (data) {
@@ -52,13 +53,13 @@
 						y: data.RepData
 					}, {
 						name: 'Done Reports',
-							y: data.IsDone
+						y: data.IsDone
 					}, {
 						name: 'Ongoing Reports',
-							y: data.OnGoing
+						y: data.OnGoing
 					}, {
-							name: 'Unhandled Reports',
-							y: data.UnHandled
+						name: 'Unhandled Reports',
+						y: data.UnHandled
 					}]
 				}]
 			});
@@ -66,3 +67,5 @@
 	});
 
 </script>
+
+@Html.ActionLink("Click here to show in Bardiagram", "/Analyze/BarDiagram")
