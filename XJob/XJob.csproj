@@ -188,6 +188,18 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Migrations\202005260609463_state.cs" />
+    <Compile Include="Migrations\202005260609463_state.Designer.cs">
+      <DependentUpon>202005260609463_state.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005260633101_vdawd.cs" />
+    <Compile Include="Migrations\202005260633101_vdawd.Designer.cs">
+      <DependentUpon>202005260633101_vdawd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005260635161_fast.cs" />
+    <Compile Include="Migrations\202005260635161_fast.Designer.cs">
+      <DependentUpon>202005260635161_fast.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Dtos\ReportDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -588,6 +600,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005251151541_v10.resx">
       <DependentUpon>202005251151541_v10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005260609463_state.resx">
+      <DependentUpon>202005260609463_state.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005260633101_vdawd.resx">
+      <DependentUpon>202005260633101_vdawd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005260635161_fast.resx">
+      <DependentUpon>202005260635161_fast.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -51,7 +51,7 @@ namespace XJob.Controllers
 		public ActionResult reportAnalyz(Report report)
 		{		  
 			var dbReport = _context.Reports.Where(r => r.Id == report.Id).FirstOrDefault();
-
+		
 			dbReport.IsDone = report.IsDone;
 			dbReport.OnGoing = report.OnGoing;
 

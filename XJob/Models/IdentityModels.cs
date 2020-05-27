@@ -21,6 +21,7 @@ namespace XJob.Models
 	public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	{
 		public DbSet<Report> Reports { get; set; }
+		public DbSet<DataPoint> Datapoint{ get; set; }
 
 		public DbSet<Company> Company { get; set; }
 

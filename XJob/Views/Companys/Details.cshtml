@@ -7,43 +7,56 @@
 	ViewBag.Title = "Details";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+</head>
+<body>
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>Title</th>
+			<td>@Model.Title</td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td> @Model.Description</td>
+		</tr>
+		<tr>
+			<th>Username</th>
+			<td> @Model.Username</td>
+		</tr>
+		<tr>
+			<th>Phonenumber</th>
+			<td> @Model.PhoneNumber</td>
+		</tr>
+	</table>
+
+	<b>Assign to this case: @User.Identity.Name</b>
+</body>
+</html>
 
 
-
-<table class="table table-bordered table-hover">
-	<tr>
-		<th>Title</th>
-		<td>@Model.Title</td>
-	</tr>
-	<tr>
-		<th>Description</th>
-		<td> @Model.Description</td>
-	</tr>
-	<tr>
-		<th>Username</th>
-		<td> @Model.Username</td>
-	</tr>
-	<tr>
-		<th>Phonenumber</th>
-		<td> @Model.PhoneNumber</td>
-	</tr>
-</table>
 
 @using (Html.BeginForm("reportAnalyz", "Companys"))
 {
 	@Html.HiddenFor(r => r.Id)
+	@Html.Hidden("Username", User.Identity.Name)
 
 
-<div class="checkbox">
-  @Html.CheckBoxFor(m => m.IsDone) Is Done
-</div>
+	<div class="checkbox">
+		@Html.CheckBoxFor(m => m.IsDone) Is Done
+	</div>
 
 
-<div class="checkbox">
-	@Html.CheckBoxFor(m => m.OnGoing) On Going 
-</div>
+	<div class="checkbox">
+		@Html.CheckBoxFor(m => m.OnGoing) On Going
+	</div>
 
-<button type="submit" class="btn btn-primary">Save</button>
+
+	<button type="submit" class="btn btn-primary">Save</button>
+
+
+
 }
 
 
